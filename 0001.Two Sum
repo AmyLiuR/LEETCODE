@@ -1,0 +1,13 @@
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        dict_of_seen_value={}
+
+        for index, value in enumerate(nums):
+            requirednumber= target -value
+
+            if requirednumber in dict_of_seen_value:
+                return [index, dict_of_seen_value[requirednumber]]
+            
+            else:
+                dict_of_seen_value[value]=index
+
