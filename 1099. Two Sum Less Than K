@@ -1,0 +1,18 @@
+class Solution:
+    def twoSumLessThanK(self, nums: List[int], k: int) -> int:
+        
+ 
+        maxres=-1
+       
+
+        for i in range(len(nums)):
+            if nums[i]>k:
+                continue
+            for j in range(i+1, len(nums)):
+                if nums[j] >k:
+                    continue 
+                if nums[i]+nums[j]<k:
+                    maxres=max(maxres,nums[i]+nums[j])
+        
+        return maxres
+            
