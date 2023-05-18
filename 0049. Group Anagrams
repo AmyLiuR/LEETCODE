@@ -1,0 +1,24 @@
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        temp=tuple()
+        temp1=list()
+        diction=dict()
+        res=list()
+        listt=list()
+        for i in range(len(strs)):
+            for j in range(len(strs[i])):
+                temp1.append(strs[i][j])
+                temp1.sort()
+            temp=tuple(temp1)
+            temp1=list()
+
+            if temp in diction:
+                diction[temp].append(strs[i])
+
+            elif temp not in diction:
+                diction[temp]=[strs[i]]
+            
+        
+        return diction.values()
+    
+            
