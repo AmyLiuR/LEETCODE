@@ -1,0 +1,20 @@
+class Solution:
+    def minLength(self, s: str) -> int:
+        dic1={'B':'A','D':'C'}
+        stack=list()
+
+
+        for ss in s:
+            if stack:
+                if ss in dic1.keys():
+                    if stack[-1]==dic1[ss]:
+                        stack.pop()
+                    else:
+                        stack.append(ss)
+                elif ss in dic1.values():
+                    stack.append(ss)            
+                elif ss not in dic1.keys() and ss not in dic1.values():
+                    stack.append(ss)
+            else:
+                stack.append(ss)
+        return len(stack)
