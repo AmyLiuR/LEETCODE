@@ -1,0 +1,22 @@
+class Solution:
+    def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
+        
+        hare=head
+        while n>0:
+            hare=hare.next
+            n-=1
+        
+        res=ListNode(0,head)
+        pre=res
+        #tort=head
+
+        while hare:
+        #    tort=tort.next
+            pre=pre.next
+            hare=hare.next
+        
+        pre.next=pre.next.next
+        #tort.next=None
+
+        return res.next
+        
