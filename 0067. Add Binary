@@ -1,0 +1,30 @@
+class Solution:
+    def addBinary(self, a: str, b: str) -> str:
+        a1=a[::-1]
+        b1=b[::-1]
+
+        a1Len=len(a1)
+        b1Len=len(b1)
+        tag=0
+        res=str()
+        if a1Len>b1Len:
+            b1=b1+'0'*(a1Len-b1Len)
+        if a1Len<b1Len:
+            a1=a1+'0'*(b1Len-a1Len)
+        for i in range(len(a1)):
+            if int(a1[i])+int(b1[i])+tag==2:
+                res=res+'0'
+                tag=1
+            elif int(a1[i])+int(b1[i])+tag==1:
+                res=res+'1'
+                tag=0
+            elif int(a1[i])+int(b1[i])+tag==0:
+                res=res+'0'
+            elif int(a1[i])+int(b1[i])+tag==3:
+                res=res+'1'
+                tag=1
+        if tag==1:
+            res=res+'1'
+
+        return res[::-1]
+       
